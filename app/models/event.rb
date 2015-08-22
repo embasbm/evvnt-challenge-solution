@@ -3,4 +3,5 @@ class Event < ActiveRecord::Base
   validates :title, :start_time, presence: true
   has_many :images
   has_many :links
+  has_many :prices
 end
