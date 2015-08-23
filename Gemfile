@@ -4,6 +4,7 @@ gem 'rails', '3.2.19'
 gem 'pg'
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails"
+gem 'kaminari'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

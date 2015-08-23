@@ -1,0 +1,30 @@
+<%- model_class = Event -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:start_time) %></th>
+      <th><%= model_class.human_attribute_name(:venue_id) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr class="event_row">
+        <% if event.images.any? %>
+          <td class="event_image"><%= image_tag(File.join('https://',event.images.first.image_url)) %></td>
+        <% else %>
+          <td class="event_image"><%= image_tag("rails.png") %></td>
+        <% end %>
+        <td><%= event.title %></td>
+        <td><%= event.start_time %></td>
+        <td><%= Venue.find(event.venue_id).name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @events %>
