@@ -62,5 +62,7 @@ module EvvntChallenge
     # Rails I18n validation deprecation warning
     config.i18n.enforce_available_locales = true
 
+    # config.active_resource.include_format_in_path = false
+    config.active_resource.site = 'https://api.sandbox.evvnt.com'
   end
 end
