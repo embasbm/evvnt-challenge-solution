@@ -4,7 +4,7 @@ class EventController < ApplicationController
   after_filter :fetch_categories, :fetch_events
 
   def index
-    # debugger
+    @events = Event.order(:start_time).page(params[:page]).per(5)
   end
 
   private
