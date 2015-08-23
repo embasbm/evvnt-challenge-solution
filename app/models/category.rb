@@ -12,8 +12,11 @@ class Category < ActiveRecord::Base
     rescue ActiveResource::ResourceConflict, ActiveResource::ResourceInvalid => e
       Rails.logger.debug "#{e}"
     end
-    debugger
     self.save_categories_data(all_categories_data) if all_categories_data.present?
+  end
+
+  def self.parent_categories
+    Category.find(Category.all.group_by(&:parent_id).each.collect {|category| category[0]})
   end
 
   private
