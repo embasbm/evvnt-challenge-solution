@@ -20,6 +20,8 @@ class EventController < ApplicationController
       Rails.logger.debug "#{e}"
     rescue ActiveResource::ResourceConflict, ActiveResource::ResourceInvalid => e
       Rails.logger.debug "#{e}"
+    rescue Timeout::Error => e
+      Rails.logger.debug "#{e}"
     end
     save_in_local_db(event_list) if event_list.present?
   end
