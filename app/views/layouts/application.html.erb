@@ -1,14 +1,69 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>EvvntChallenge</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "EvvntChallenge" %></title>
+    <%= csrf_meta_tags %>
 
-<%= yield %>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
 
-</body>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+  </head>
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">EvvntChallenge</a>
+          <div class="container nav-collapse">
+            <ul class="nav">
+              <li><%= link_to "Venues", "#"  %></li>
+              <li><%= link_to "Artists", "#"  %></li>
+              <li><%= link_to "Categories", "#"  %></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="span9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+        <div class="span3">
+          <div id="form-sidebar" class="well sidebar-nav" data-events-url="<%= events_url %>">
+            <h3>Sidebar</h3>
+            <%= form_tag events_path, class: 'custom-search-form' do %>
+              <%= label_tag 'From:' %>
+              <%= text_field_tag 'from', nil, class: 'datepicker date-from' %>
+              <%= label_tag 'To:' %>
+              <%= text_field_tag 'to', nil, class: 'datepicker date-for' %>
+              <%= label_tag 'Category:' %>
+              <%= select_tag "Category", options_from_collection_for_select(@categories, "id", "name"), {class: 'event-category'} %>
+              <%= submit_tag 'Search', class: 'btn btn-primary search-for-events' %>
+            <% end %>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; Company 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
 </html>
