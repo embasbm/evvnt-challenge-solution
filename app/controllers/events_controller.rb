@@ -1,9 +1,10 @@
-class EventController < ApplicationController
+class EventsController < ApplicationController
   include AbstractController::Callbacks
 
-  after_filter :fetch_categories, :fetch_events
+  # after_filter :fetch_categories, :fetch_events
 
   def index
+    @categories = Category.parent_categories
     @events = Event.order(:start_time).page(params[:page]).per(5)
   end
 
