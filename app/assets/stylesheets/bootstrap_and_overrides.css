@@ -15,8 +15,8 @@ td.event_image {
   width: 10%;
   text-align: center;
 }
-.event_row {
-  min-height: 80px;
+.events-table tbody tr{
+  height: 100px;
 }
 
 /* SIDEBAR */
