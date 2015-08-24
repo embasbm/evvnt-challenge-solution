@@ -1,0 +1,110 @@
+<%= form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :title, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :timestamp, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :timestamp, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :start_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :start_time, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :end_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :end_time, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :door_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :door_time, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :last_entry_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.datetime_select :last_entry_time, :class => 'datetime_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :summary, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :summary, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :organiser_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :organiser_name, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :hashtag, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :hashtag, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :artists, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :artists, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :keywords, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :keywords, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :contact, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :contact, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :package, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :package, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :venue_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :venue_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :category_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :category_id, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :sub_category_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :sub_category_id, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                events_path, :class => 'btn' %>
+  </div>
+<% end %>
