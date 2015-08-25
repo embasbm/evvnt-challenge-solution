@@ -18,7 +18,9 @@
       <%= label_tag :venue_id, 'Venues:' %>
       <%= select_tag :venue_id, options_from_collection_for_select(venues, "id", "name"), class: 'venue-category form-control', prompt: 'Please select venue' %>
     </div>
-    <%= submit_tag 'Search', class: 'btn btn-primary search-for-events ' %>
+    <div class="form-group">
+      <%= submit_tag 'Search', class: 'btn btn-primary search-for-events ' %>
+    </div>
   <% end %>
 </div><!--/.well -->
 
