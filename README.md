@@ -44,4 +44,6 @@ Make sure all tests are passing by running:
 
 `rake`
 
-**There is no time limit for this test.**
+**To populate the data from the API, run the rake task:
+ 
+`rake import:categories_and_events`
