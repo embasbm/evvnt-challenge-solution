@@ -18,7 +18,7 @@
         </div>
 
         <div class="span3">
-          <%= render partial: 'shared/sidebar', locals: {min_date: @min_date, max_date: @max_date, venues: @venues } %>
+          <%= render partial: 'shared/sidebar', locals: {min_date: @min_date.strftime("%d/%m/%Y"), max_date: @max_date.strftime("%d/%m/%Y"), venues: @venues } %>
         </div><!--/span-->
       </div><!--/row-->
     </div> <!-- /container -->
