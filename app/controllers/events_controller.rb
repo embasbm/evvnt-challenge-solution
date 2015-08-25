@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-  include AbstractController::Callbacks
 
   def index
 
