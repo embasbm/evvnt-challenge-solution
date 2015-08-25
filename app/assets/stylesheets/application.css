@@ -12,3 +12,8 @@
  *= require jquery-ui.min
  *= require_tree .
  */
+
+
+#ui-datepicker-div {
+  z-index: 2030 !important; /* ensure header is over bootstrap header */
+}
