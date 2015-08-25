@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def get_edge_dates
-    @min_date = Event.minimum(:start_time)
-    @max_date = Event.maximum(:start_time)
+    @min_date = Event.minimum(:start_time).strftime("%d/%m/%Y")
+    @max_date = Event.maximum(:start_time).strftime("%d/%m/%Y")
   end
 end
