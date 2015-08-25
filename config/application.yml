@@ -1,5 +1,6 @@
 api_site: 'https://api.sandbox.evvnt.com'
-api_key: 'Basic ZXZ2bnRjaGFsbGVuZ2U6YzIxMzY4NDllNTI0ZDZmNDNiOTBhYzNkN2U5OGU1ZGM='
+api_username: 'evvntchallenge'
+api_password: 'c2136849e524d6f43b90ac3d7e98e5dc'
 
 test:
 development:

@@ -1,8 +1,8 @@
 module Api
   class BaseResource < ActiveResource::Base
-    site = Figaro.env.api_site
-    headers['Authorization'] = Figaro.env.api_key
-
+    self.site = Figaro.env.api_site
+    self.user = Figaro.env.api_username
+    self.password = Figaro.env.api_password
 
     # Reasonable default
     self.timeout = 5
