@@ -1,0 +1,20 @@
+
+<div id="form-sidebar" class="well sidebar-nav" data-events-url="<%= events_url %>">
+  <h3>Sidebar</h3>
+  <%= form_tag events_path, method: 'get', class: 'custom-search-form', data: { remote: true }, id: :events_filter   do %>
+    <%= label_tag :keyword, 'Text:' %>
+    <%= text_field_tag 'keyword', nil, class: 'form-control' %>
+    <%= label_tag :date_from, 'From:' %>
+    <%= text_field_tag 'date_from', nil, class: 'datepicker date-from', data: { minDate: min_date } %>
+    <%= label_tag :date_to, 'To:' %>
+    <%= text_field_tag 'date_to', nil, class: 'datepicker date-for', data: { maxDate: max_date} %>
+    <%= label_tag :venue_id, 'Venues:' %>
+    <%= select_tag :venue_id, options_from_collection_for_select(venues, "id", "name"), class: 'venue-category', prompt: 'Please select venue' %>
+
+    <%= submit_tag 'Search', class: 'btn btn-primary search-for-events' %>
+  <% end %>
+</div><!--/.well -->
+
+
+
+

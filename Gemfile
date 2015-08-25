@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.19'
-gem 'sqlite3'
+gem 'pg'
 gem 'jquery-rails'
+gem "twitter-bootstrap-rails"
+gem 'kaminari'
+gem "figaro"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
