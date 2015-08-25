@@ -18,25 +18,7 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">EvvntChallenge</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Venues", "#"  %></li>
-              <li><%= link_to "Artists", "#"  %></li>
-              <li><%= link_to "Categories", "#"  %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
+    <%= render partial: 'shared/header' %>
 
     <div class="container">
       <div class="row">
@@ -45,21 +27,7 @@
           <%= yield %>
         </div>
         <div class="span3">
-          <div id="form-sidebar" class="well sidebar-nav" data-events-url="<%= events_url %>">
-            <h3>Sidebar</h3>
-            <%= form_tag events_path, method: 'get', class: 'custom-search-form', data: { remote: true }, id: :events_filter   do %>
-              <%= label_tag :keyword, 'Text:' %>
-              <%= text_field_tag 'keyword', nil, class: 'form-control' %>
-              <%= label_tag :date_from, 'From:' %>
-              <%= text_field_tag 'date_from', nil, class: 'datepicker date-from', data: { min_date: @min_date } %>
-              <%= label_tag :date_to, 'To:' %>
-              <%= text_field_tag 'date_to', nil, class: 'datepicker date-for', data: { max_date: @max_date} %>
-              <%= label_tag :venue_id, 'Venues:' %>
-              <%= select_tag :venue_id, options_from_collection_for_select(@venues, "id", "name"), class: 'venue-category', prompt: 'Please select venue' %>
-              
-              <%= submit_tag 'Search', class: 'btn btn-primary search-for-events' %>
-            <% end %>
-          </div><!--/.well -->
+          <%= render partial: 'shared/sidebar', locals: {min_date: @min_date, max_date: @max_date, venues: @venues } %>
         </div><!--/span-->
       </div><!--/row-->
 
