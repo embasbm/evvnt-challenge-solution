@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
       end
 
       event.prices.attributes.keys.each do |price_category|
-        new_event.prices.create(criteria: price_category, value: event.prices.attributes[price_category])
+        new_event.prices.create(category: price_category, value: event.prices.attributes[price_category])
       end
       
       event.links.attributes.keys.each do |link_name|
