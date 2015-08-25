@@ -64,6 +64,7 @@ module EvvntChallenge
     # Rails I18n validation deprecation warning
     config.i18n.enforce_available_locales = true
 
-    # config.active_resource.include_format_in_path = false
+    config.assets.initialize_on_precompile = false
+
   end
 end
